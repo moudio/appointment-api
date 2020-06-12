@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def welcome
-    @users = User.all
+    @cars = Car.all
   end
 end
