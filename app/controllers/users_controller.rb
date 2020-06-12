@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+      before_action :authorized, only: [:show]
     def new 
     @user = User.new
     end 
 
     def create 
         @user = User.create(user_params)
-        p "inside the create"
         if  @user.save 
             redirect_to user_path(@user)
         else 
