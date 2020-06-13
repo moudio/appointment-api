@@ -3,11 +3,13 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.10.1",
+    "@fullpage/react-fullpage": "^0.1.17",
     "@rails/webpacker": "5.1.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-fullpage": "^0.1.19",
     "react_ujs": "^2.6.1"
   },
   "devDependencies": {
