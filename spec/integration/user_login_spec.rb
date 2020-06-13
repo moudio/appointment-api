@@ -9,6 +9,8 @@ fill_in "Username", with: user.username
 fill_in "Password", with: user.password
 click_button "Login" 
 expect(page).to have_content(user.username)
+click_button "Logout"
+expect(page).to have_content("Login")
 end 
 
 
