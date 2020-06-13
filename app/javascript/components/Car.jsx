@@ -2,9 +2,8 @@ import React from 'react';
 
 function Car({ car }) {
   return (
-    <div className="Car">
-      <p>{car.model}</p>
-      <p>{car.description}</p>
+    <div className="section">
+      <h3>{car.model}</h3>
     </div>
   );
 }
