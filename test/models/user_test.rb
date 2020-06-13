@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-
 class UserTest < ActiveSupport::TestCase
   test "should not save user without username" do 
       user = User.new
@@ -17,5 +16,6 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(username: "Mouhamadou", password: "password")
     assert user.save 
   end 
-
+ 
 end
+ 
