@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    Car { "MyString" }
+    Car { "yString" }
     Book { "MyString" }
   end
 end
