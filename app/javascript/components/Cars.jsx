@@ -10,7 +10,7 @@ class Cars extends React.Component {
   render() {
     return (
       <>
-      <Navigation />
+      <Navigation nav = "breadcrumb" />
       <ReactFullpage
         scrollOverflow={true}
         sectionsColor={['#4BBFC3', '#7BAABE', 'whitesmoke', '#000']}
