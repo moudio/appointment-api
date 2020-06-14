@@ -2,7 +2,6 @@
 
 class Car < ApplicationRecord
   validates :model, presence: true, uniqueness: true
-  validates :image, presence: true, uniqueness: true
   has_many :books
   has_many :users, through: :books
 end

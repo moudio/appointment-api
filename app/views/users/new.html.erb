@@ -1,4 +1,6 @@
-<%= form_for @user do |f| %>
+<div class="signup-container">
+<%= form_for(@user, html: {class: 'signup-form'})  do |f| %>
+<h1>Create account</h1>
     <%= f.label :username %>
     <%= f.text_field :username, placeholder: "Username"%>
     <%= f.label :password%>
@@ -7,3 +9,5 @@
     <%= f.password_field :password_confirmation, placeholder: "Confirm Password"%>
     <%= f.submit "Create Account" %>
 <% end %>
+
+</div>

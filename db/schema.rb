@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2020_06_12_112437) do
 
   create_table "cars", force: :cascade do |t|
     t.string "model"
-    t.string "image"
     t.string "description"
+    t.string "alt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
