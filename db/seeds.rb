@@ -23,6 +23,11 @@ cars = Car.create([
       model: 'Range Rover Sport', 
       image: 'http://wp2.carwallpapers.cc/land-rover/range-rover-sport/2018-shadow-edition/Range-Rover-Sport-Shadow-Edition-2018-3840x2160-002.jpg', 
       description: 'Range Rover Sport Description'
+  },
+  {
+    model: 'Discovery', 
+    image: "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/land-rover-discovery-rear-cornering.jpg?itok=P_AzRJO2", 
+    description: 'The most versatile SUV on the market'
   }
 ]
 )

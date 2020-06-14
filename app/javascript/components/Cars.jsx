@@ -13,6 +13,7 @@ class Cars extends React.Component {
         scrollOverflow={true}
         sectionsColor={['#4BBFC3', '#7BAABE', 'whitesmoke', '#000']}
         continuousVertical = {true}
+        navigation
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage-wrapper">
