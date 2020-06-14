@@ -1,3 +1,15 @@
 .section-velar {
-  background-image: url('https://lh3.googleusercontent.com/proxy/EtGzR-23NLNaJ34mn8Ut4VVZS_rW7kpiVsaEsSKWH8RzJSE0Tdthi4RTuz6Y29nJCild5t1ff3vvR1shVKmPmHEIrJAYAPnor0FX3P7mR_LcmOarOgHgnkIqe_L0jn0xP6o');
+  background-image: url('../../assets/images/velar.png');
+}
+
+.section-evoque {
+  background-image: url('../../assets//images/evoque.png');
+}
+
+.section-sport {
+  background-image: url('../../assets/images/sport.png');
+}
+
+.section-discovery {
+  background-image: url('../../assets/images/discovery.png');
 }
