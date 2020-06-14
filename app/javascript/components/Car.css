@@ -13,3 +13,34 @@
 .section-discovery {
   background-image: url('../../assets/images/discovery.png');
 }
+
+.section-velar,
+.section-evoque,
+.section-sport,
+.section-discovery {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.inner-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.content {
+  width: 40%;
+}
+
+.picture {
+  width: 60%;
+  height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .picture {
+    width: 100%;
+  }
+}
