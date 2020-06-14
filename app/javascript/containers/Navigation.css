@@ -2,7 +2,7 @@
   position: absolute;
   z-index: 999;
   right: 0;
-  transition: background-color 0.1s ease-out;
+  transition: background-color 0.2s ease-in;
 }
 
 .full-width {
@@ -24,19 +24,22 @@
 }
 
 .menu-icon {
-  text-align: right;
   font-size: 50px;
+  text-align: right;
   color: white;
-  margin-top: 10px;
-  margin-right: 10px;
 }
 
-.menu-icon .breadcrumb {
+.menu-icon svg {
+  padding: 20px;
+}
+
+.menu-icon .breadcrumb,
+.menu-icon .close {
   cursor: pointer;
 }
 
 .disappear {
-  right: -200px;
+  left: 100px;
 }
 
 .appear {
