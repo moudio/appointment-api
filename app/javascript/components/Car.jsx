@@ -9,6 +9,8 @@ function Car({ car }) {
        </div>
       <div className="content">
   <h2>{car.model}</h2>
+  <p>{car.description}</p>
+  <button type="button" class="book-ride">Book a ride</button>
       </div>
       </div>
      </div>
