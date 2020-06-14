@@ -13,7 +13,7 @@ class Cars extends React.Component {
       <Navigation nav = "breadcrumb" />
       <ReactFullpage
         scrollOverflow={true}
-        sectionsColor={['#4BBFC3', '#7BAABE', 'whitesmoke', '#000']}
+        sectionsColor={['#4BBFC3', '#7BAABE', 'whitesmoke', '#81e4da']}
         continuousVertical = {true}
         navigation
         render={({ state, fullpageApi }) => {
