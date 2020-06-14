@@ -2,13 +2,12 @@
   position: absolute;
   z-index: 999;
   right: 0;
-  transition: background-color 0.2s ease-in;
 }
 
 .full-width {
   width: 100%;
   height: 100vh;
-  background-color: yellow;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 .Navigation ul {
@@ -20,7 +19,8 @@
 }
 
 .Navigation ul li {
-  padding: 10px 0;
+  padding: 20px 0;
+  color: white;
 }
 
 .menu-icon {

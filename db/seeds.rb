@@ -7,10 +7,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-cars = Car.create([
+Car.create([
   {
   model: 'Range Rover Velar',
-  image: 'https://wallsdesk.com/wp-content/uploads/2017/03/Range-Rover-Velar-HD-Wallpaper.jpg',
+  image: 'https://lh3.googleusercontent.com/proxy/EtGzR-23NLNaJ34mn8Ut4VVZS_rW7kpiVsaEsSKWH8RzJSE0Tdthi4RTuz6Y29nJCild5t1ff3vvR1shVKmPmHEIrJAYAPnor0FX3P7mR_LcmOarOgHgnkIqe_L0jn0xP6o',
   description: 'Range Rover Velar Description'
   }, 
 
