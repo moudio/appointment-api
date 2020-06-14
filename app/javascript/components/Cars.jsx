@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 import './Cars.css';
 import Car from './Car';
 import { Header, Footer, SectionsContainer, Section } from 'react-fullpage';
-
+import Navigation from '../containers/Navigation'
 class Cars extends React.Component {
   render() {
     return (
+      <>
+      <Navigation />
       <ReactFullpage
         scrollOverflow={true}
         sectionsColor={['#4BBFC3', '#7BAABE', 'whitesmoke', '#000']}
@@ -24,6 +26,7 @@ class Cars extends React.Component {
           );
         }}
       />
+      </>
     );
   }
 }
