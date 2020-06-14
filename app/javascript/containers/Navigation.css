@@ -1,9 +1,13 @@
 .Navigation {
   position: absolute;
   z-index: 999;
+  right: 0;
+}
+
+.full-width {
   width: 100%;
   height: 100vh;
-  background: yellow;
+  background-color: yellow;
 }
 
 .Navigation ul {
@@ -31,11 +35,10 @@
 }
 
 .disappear {
-  left: -110px;
+  right: -200px;
 }
 
 .appear {
-  position: fixed;
   top: 50%;
   left: 50%;
   /* bring your own prefixes */

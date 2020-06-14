@@ -4,11 +4,15 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import './Navigation.css';
 export const Navigation = () => {
   function toggleMenu() {
-    let menu = document.querySelector('.menu-list');
+    const menu = document.querySelector('.menu-list');
     if (!menu.classList.contains('appear')) {
+      document.querySelector('.Navigation').classList.add('full-width');
+      menu.classList.remove('disappear');
       menu.classList.add('appear');
     } else {
       menu.classList.remove('appear');
+      menu.classList.add('disappear');
+      document.querySelector('.Navigation').classList.remove('full-width');
     }
   }
   return (
