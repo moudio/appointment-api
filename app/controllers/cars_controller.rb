@@ -1,11 +1,7 @@
 class CarsController < ApplicationController
-    before_action :authorized, only: [:show]
+    before_action :authorized
     def index 
-        @cars = Car.all
-        respond_to do |format|
-            format.html
-            format.xml {render :xml => @cars }
-            format.json {render :json => @cars }
-        end 
+        render :json => Car.all
+    
     end 
 end
