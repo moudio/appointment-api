@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-    before_action :authorized
+    # before_action :authorized
     def index 
         render :json => Car.all
     
