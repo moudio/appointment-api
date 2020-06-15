@@ -7,8 +7,9 @@ RSpec.describe "Cars API", type: :request do
         before {get '/cars'}
     
         it 'returns cars' do 
-                expect(json).not_to be_empty
-                expect(json.size).to eq(10)
+            result = JSON(response.body)
+                expect(result).not_to be_empty
+                expect(result.size).to eq(10)
         end 
     end 
 end
