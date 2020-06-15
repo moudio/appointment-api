@@ -8,17 +8,18 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    background: url('signin.jpg');
+    background: url('https://images.unsplash.com/photo-1541635768073-b3c66030a479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80');
     overflow: hidden;
     height: 100%;
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+
 }
 
 .signup-form {
-background: rgba(255, 255, 255, 1);
-margin: 0 auto;
+background: rgba(255, 255, 255, 0.8);
 width: 80%;
 max-width: 600px;
 display: flex;
@@ -29,7 +30,12 @@ border-radius: 5px;
 text-align: center;
 font-size: 20px;
 padding: 50px;
-
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 
@@ -39,4 +45,10 @@ height: 30px;
 max-width: 350px;
 margin: 10px auto
 
+}
+
+.signup-form input[type="submit"] {
+    background: yellow;
+    font-weight: bold;
+    cursor: pointer;
 }
