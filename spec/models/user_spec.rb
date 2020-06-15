@@ -6,6 +6,10 @@ RSpec.describe User, type: :model do
         expect(user).to be_valid
       end 
 
+    it "tests if we can save the user with usename and password" do 
+        expect(user.save).to eq(true)
+    end 
+
        it "tests the uniqueness of username" do 
           second_user = User.new(username:"Mouhamadou", password: "unique_passowrd",  password_confirmation: "unique_password")
           user.save 
