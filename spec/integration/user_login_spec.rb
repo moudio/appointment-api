@@ -1,12 +1,9 @@
 require 'rails_helper'
-
+require_relative '../helpers/users_helpers_spec.rb'
 feature 'User login' do 
 let(:user) {create(:user)}
 scenario "checks if user can login" do 
-visit login_path 
-fill_in "Username", with: user.username
-fill_in "Password", with: user.password
-click_button "Login" 
+ login user
 expect(page).to have_content("Logout")
 click_button "Logout"
 expect(page).to have_content("Login")
