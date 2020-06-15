@@ -14,9 +14,19 @@ RSpec.describe "Cars API", type: :request do
 
         it "returns status code 200 " do 
 expect(response).to have_http_status(200)
-        end 
-    
-    
-    
+        end     
     end 
+
+    describe 'Get /cars/:id' do 
+            before{ get "/cars/#{car_id}"}
+
+            context "when the record exists " do 
+                
+                it "returns the car " do 
+                    expect(JSON(response.body).not_to be_empty)
+            end 
+
+    end 
+end
+
 end
