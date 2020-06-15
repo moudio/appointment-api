@@ -21,9 +21,9 @@ expect(response).to have_http_status(200)
             before{ get "/cars/#{car_id}"}
 
             context "when the record exists " do 
-                
+
                 it "returns the car " do 
-                    expect(JSON(response.body).not_to be_empty)
+                    expect(JSON(response.body)).not_to be_empty
             end 
 
     end 
