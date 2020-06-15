@@ -29,8 +29,16 @@ RSpec.describe User, type: :model do
         user.password = nil 
         expect(user).not_to be_valid
 
-      end 
+      end
+      
+ 
+        it "has many books" do 
+            should respond_to(:books)
+        end 
 
+        it "has many cars through books" do 
+              should respond_to(:cars)
+        end 
      
 
  

@@ -1,18 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Car, type: :model do
-car = Car.new(model: "Toyota", image: "Image", description: "Land Cruiser Description")
+car = Car.new(model: "Toyota" , description: "Land Cruiser Description")
 
 it "checks the car model doesn't save with no model" do 
   car.model = nil 
 expect(car).not_to be_valid 
 end
 
-it "checks car model doesn't save with no picture" do 
-car.model = "Toyota"
-car.image = nil 
-expect(car).not_to be_valid
-end 
 
 it "checks if car is valide when there is picture and model" do 
   car.model = "Toyota"
