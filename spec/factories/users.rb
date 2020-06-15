@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :user do
-    Car { "Range Rover" }
-    Book { "1" }
-    username {"user"}
-    password {"password"}
-    password_confirmation {"password"}
+    username {Faker::Name.first_name}
+    password {'password'}
   end
+
 end

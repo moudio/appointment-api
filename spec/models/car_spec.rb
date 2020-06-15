@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Car, type: :model do
-car = Car.new(model: "Toyota" , description: "Land Cruiser Description")
+
+let!(:car) {build(:car)} 
 
 it "checks the car model doesn't save with no model" do 
   car.model = nil 

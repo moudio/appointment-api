@@ -1,9 +1,7 @@
 require 'rails_helper'
-
 RSpec.describe User, type: :model do
-  user = User.new(username:"User", password:"password", password_confirmation: "password")
+  let!(:user) {build(:user)}
   context "tests the User model validation" do 
-
          it "tests the user is valid with username and password" do 
         expect(user).to be_valid
       end 

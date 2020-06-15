@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :car do
-   model {"Range Rover"} 
-   description {"Range Rover default car"}
-   alt {"velar"}
+   model {Faker::Lorem.word} 
+   description {Faker::Lorem.paragraph}
+   alt {Faker::Lorem.word}
   end
 end
