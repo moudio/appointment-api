@@ -11,7 +11,10 @@ end
 
 it "checks if car is valid when there is a model and description" do 
   expect(car).to be_valid 
+  expect(car.save).to eq(true)
 end 
+
+
 
 it "checks if car has many books " do 
   should respond_to(:books)
