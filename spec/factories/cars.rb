@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :car do
-   model {Faker::Lorem.word} 
-   description {Faker::Lorem.paragraph}
-   alt {Faker::Lorem.word}
+   model {Faker::Vehicle.make} 
+   description {Faker::Vehicle.make_and_model}
+   alt {Faker::Vehicle.style}
   end
 end
