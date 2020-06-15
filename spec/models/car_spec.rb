@@ -9,8 +9,7 @@ it "checks the car model doesn't save with no model" do
 expect(car).not_to be_valid 
 end
 
-it "checks if car is valid when there is picture and model" do 
-  car.model = "Toyota"
+it "checks if car is valid when there is a model and description" do 
   expect(car).to be_valid 
 end 
 
