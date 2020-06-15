@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index, :show]
   resources :cars
   root 'cars#index'
-  get '/cars' => 'cars#index'
   get '/welcome' => 'pages#welcome'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
