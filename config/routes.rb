@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     resources :cars , only: [:show]
     resources :books
   end 
-  resources :cars
+  resources :cars do 
+    resources :users
+    resources :books 
+    
+  end 
   resources :books
 
   root 'cars#index'
