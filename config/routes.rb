@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :cars 
+scope '/api/v1' do
+  resources :cars
   resources :users
   resources :books
-
+end 
   root 'cars#index'
   get '/welcome' => 'pages#welcome'
   get '/signup' => 'users#new'
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   get '/users/:id/cars' => "users#user_cars"
   get '/users/:id/books' => "users#user_books"
   get '/users/:id/cars/:car_id' => "users#show_car"
+
 end
