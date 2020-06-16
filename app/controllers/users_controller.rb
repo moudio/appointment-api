@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
       before_action :authorized, only: [:show]
     
+    def index 
+        @users = User.all 
+        json_response(@users)
+    end 
+
     def new 
     @user = User.new
     end 
