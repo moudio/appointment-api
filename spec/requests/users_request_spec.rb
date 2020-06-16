@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Users API", type: :request do
 let!(:user) {create(:user)}
-let!(:cars) {create_list(:car, 20)}
-let!(:book) {create_list(:book, 20, car_id: rand(1..20) , user_id: user.id)};
+let!(:car) {create(:car)}
+let!(:book) {create(:book, car_id: 1 , user_id: user.id)};
 let!(:user_id) {user.id}
-let!(:id) {cars.first.id}
+let!(:id) {car.id}
 
 describe 'Get users' do 
     before {get "/users/#{user_id}/cars"}
@@ -16,7 +16,7 @@ describe 'Get users' do
         end 
 
             it 'returns all user cars' do 
-                expect(JSON(response.body).size).to eq(20)
+                expect(JSON(response.body).size).to eq(1)
             end 
     end 
 
@@ -47,7 +47,7 @@ describe 'Get users/:user_id/cars/:id' do
         let(:id) {0}
 
         it 'returns status code 404' do 
-            expect(response.body).to math(/Couldn't find Car/)
+            expect(response.body).to match(/Couldn't find Car/)
         end 
     end 
 end 

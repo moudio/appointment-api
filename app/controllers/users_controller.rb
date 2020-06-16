@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    #   before_action :authorized, only: [:show]
-    
+    before_action :set_user 
     def index 
         @users = User.all 
         json_response(@users)
@@ -20,17 +19,30 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        @user = User.find(params[:id])
+        json_response(@user)
     end 
 
     def user_cars
-        @user = User.find(params[:id])
         @user_cars = @user.cars 
         json_response(@user_cars)
+    end 
+
+    def user_books 
+        @user_books = @user.books 
+        json_response(@user_books)
+    end 
+
+    def show_car 
+        @car = @user.cars.find(params[:car_id])
+        json_response(@car)
     end 
 
     private
     def user_params
         params.require(:user).permit(:username, :password, :password_confirmation)
     end
+
+    def set_user 
+        @user = User.find(params[:id])
+    end 
 end
