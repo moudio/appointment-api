@@ -30,10 +30,10 @@ class CarsController < ApplicationController
     private 
 
     def car_params 
-        params.require(:car).permit(:model, :description, :alt)
+        params.permit(:model, :description, :alt)
     end 
 
-    def set_todo 
+    def set_car
         @car = Car.find(params[:id])
     end 
 end

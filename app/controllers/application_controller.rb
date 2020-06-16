@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::API
+include Response 
+include ExceptionHandler
 
-    helper_method :logged_in? , :current_user
+helper_method :logged_in? , :current_user
 
 def current_user 
 if(session[:user_id])

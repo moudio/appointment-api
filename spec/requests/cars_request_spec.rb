@@ -49,7 +49,6 @@ RSpec.describe "Cars API", type: :request do
 
     end
 
-
     describe 'POST /cars' do 
 
         let(:valid_attributes) {{model: 'Range Rover Auto', description: 'The description for the Range Rover Autobiography', alt: 'Autobio' }}
@@ -58,7 +57,7 @@ RSpec.describe "Cars API", type: :request do
             before {post '/cars', params: valid_attributes}
 
             it "creates a car" do 
-                expect(JSON(response.body['model'])).to eq('Range Rover Auto')
+                expect(JSON(response.body)['model']).to eq('Range Rover Auto')
             end 
 
             it "returns status code 201" do 
@@ -74,8 +73,8 @@ RSpec.describe "Cars API", type: :request do
             end 
 
             it 'returns a validation failure message' do 
-                    expect(response).body
-                    .to match(/Validation failed: Description can't be blank/)
+                    expect(response.body)
+                    .to match(/Validation failed: Alt can't be blank/)
             end 
         end 
 
