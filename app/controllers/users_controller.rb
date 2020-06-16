@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-      before_action :authorized, only: [:show]
+    #   before_action :authorized, only: [:show]
     
     def index 
         @users = User.all 
@@ -21,6 +21,12 @@ class UsersController < ApplicationController
 
     def show 
         @user = User.find(params[:id])
+    end 
+
+    def user_cars
+        @user = User.find(params[:id])
+        @user_cars = @user.cars 
+        json_response(@user_cars)
     end 
 
     private

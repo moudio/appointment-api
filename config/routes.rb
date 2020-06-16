@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index, :show]
   resources :cars
   resources :books
+
   root 'cars#index'
   get '/welcome' => 'pages#welcome'
   get '/signup' => 'users#new'
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
   get '/404' => 'errors#not_found'
+  get '/users/:id/cars' => "users#user_cars"
   
 end
