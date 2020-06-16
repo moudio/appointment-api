@@ -13,12 +13,12 @@ RSpec.describe "Cars API", type: :request do
         end 
 
         it "returns status code 200 " do 
-expect(response).to have_http_status(200)
+        expect(response).to have_http_status(200)
         end     
-    end 
+        end 
 
-    describe 'Get /cars/:id' do 
-            before{ get "/cars/#{car_id}"}
+        describe 'Get /cars/:id' do 
+            before{ get "/cars/#{car_id}" }
 
             context "when the record exists " do 
 
@@ -26,7 +26,41 @@ expect(response).to have_http_status(200)
                     expect(JSON(response.body)).not_to be_empty
             end 
 
+            it "returns the status code 200" do 
+                expect(response).to have_http_status(200)
+            end 
+
+
+        end 
+        
+        context "when the car doesn't exist" do
+            let(:car_id) {25} 
+
+                it "returns the status code 404" do 
+                expect(response).to have_http_status(404)
+                end 
+
+                it "returns a not found message" do     
+                    expect(response.body).to match(/Couldn't find Car/); 
+
+                end 
+        end 
+
+
+    end
+
+
+    describe 'POST /cars' do 
+
+        let(:valid_attributes) {{model: 'Range Rover Auto', description: 'The description for the Range Rover Autobiography', alt: 'Autobio' }}
+
+        context 'when the request is valid' do 
+            before {post '/cars', params: valid_attributes}
+
+            it "creates a car" do 
+                expect(JSON(response.body['model'])).to eq('Range Rover Auto')
+            end 
+        end 
     end 
-end
 
 end
