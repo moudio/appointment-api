@@ -3,7 +3,14 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        if @users
         json_response(@users)
+      else {
+        render json: {
+          status: 500,
+          errors, ['no users found']
+        }
+      }
     end
 
     def new
@@ -13,9 +20,16 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if  @user.save
-            redirect_to user_path(@user)
+          login!
+          render json: {
+            status: :created,
+            user: @user
+          }
         else
-            render 'new'
+            render json: {
+              status: 500,
+              erros: @user.erros.full_messages
+            }
         end
     end
 

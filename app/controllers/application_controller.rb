@@ -1,21 +1,30 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::API
-include Response 
+include Response
 include ExceptionHandler
 
-helper_method :logged_in? , :current_user
+helper_method :logged_in? , :current_user, :login!
 
-def current_user 
+def login!
+session[:user_id] = @user.id
+end
+
+
+def current_user
 if(session[:user_id])
     @user = User.find(session[:user_id])
-end 
+end
 end
 
 def logged_in?
-    !!current_user 
-end 
+    !!current_user
+end
 
-def authorized 
+def authorized
 redirect_to login_path unless logged_in?
-end 
+end
+
+def logout!
+  session.clear 
+end
 end
