@@ -1,50 +1,50 @@
 class UsersController < ApplicationController
     before_action :set_user, only:[:show, :user_cars, :user_books, :show_cars, :user_books, :show_car]
 
-    def index 
-        @users = User.all 
+    def index
+        @users = User.all
         json_response(@users)
-    end 
+    end
 
-    def new 
+    def new
     @user = User.new
-    end 
+    end
 
-    def create 
+    def create
         @user = User.create(user_params)
-        if  @user.save 
+        if  @user.save
             redirect_to user_path(@user)
-        else 
-            render 'new' 
-        end 
-    end 
+        else
+            render 'new'
+        end
+    end
 
-    def show 
+    def show
         json_response(@user)
-    end 
+    end
 
     def user_cars
-        @user_cars = @user.cars 
+        @user_cars = @user.cars
         json_response(@user_cars)
-    end 
+    end
 
-    def user_books 
-        @user_books = @user.books 
+    def user_books
+        @user_books = @user.books
         json_response(@user_books)
-    end 
+    end
 
-    def show_car 
+    def show_car
         @car = @user.cars.find(params[:car_id])
         json_response(@car)
-    end 
+    end
 
-    
+
     private
     def user_params
         params.require(:user).permit(:username, :password, :password_confirmation)
     end
 
-    def set_user 
+    def set_user
         @user = User.find(params[:id])
-    end 
+    end
 end
