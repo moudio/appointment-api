@@ -3,7 +3,10 @@ class ApplicationController < ActionController::API
 include Response
 include ExceptionHandler
 
-helper_method :logged_in? , :current_user, :login!
+skip_before_action :verify_authenticity_token
+
+
+helper_method :logged_in? , :current_user, :login!, :authorized, :logout!
 
 def login!
 session[:user_id] = @user.id
@@ -25,6 +28,6 @@ redirect_to login_path unless logged_in?
 end
 
 def logout!
-  session.clear 
+  session.clear
 end
 end
