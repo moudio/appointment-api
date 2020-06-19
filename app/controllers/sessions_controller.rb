@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
           user: @user
         }
       else
-        render json : {
+        render json: {
           status: 401,
           errors: ['no such user', 'verify credentials and try again or signup']
         }
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
           }
         else
           render json: {
-            logged_in: false
+            logged_in: true,
             message: 'no such user'
           }
     end

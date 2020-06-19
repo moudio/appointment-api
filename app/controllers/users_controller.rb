@@ -5,13 +5,15 @@ class UsersController < ApplicationController
         @users = User.all
         if @users
         json_response(@users)
-      else {
+      else
         render json: {
           status: 500,
-          errors, ['no users found']
+          errors: ['no users found']
         }
-      }
+
     end
+
+  end
 
     def new
     @user = User.new
@@ -25,10 +27,11 @@ class UsersController < ApplicationController
             status: :created,
             user: @user
           }
+
         else
             render json: {
               status: 500,
-              erros: @user.erros.full_messages
+              erros: @user.errors.full_messages
             }
         end
     end
@@ -61,4 +64,5 @@ class UsersController < ApplicationController
     def set_user
         @user = User.find(params[:id])
     end
+
 end

@@ -10,7 +10,7 @@ end
   get '/welcome' => 'pages#welcome'
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
-  post '/sessions' => 'sessions#create'
+  post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/404' => 'errors#not_found'
   get '/users/:id/cars' => "users#user_cars"
