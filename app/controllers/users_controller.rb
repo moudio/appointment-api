@@ -25,7 +25,7 @@ class UsersController < ApplicationController
           login!
           render json: {
             status: :created,
-            user: @user
+            user: @user,
             cars: @user.cars
           }
 
