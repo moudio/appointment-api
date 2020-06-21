@@ -26,6 +26,7 @@ class UsersController < ApplicationController
           render json: {
             status: :created,
             user: @user
+            cars: @user.cars
           }
 
         else

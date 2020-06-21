@@ -11,23 +11,51 @@ Car.create([
   {
   model: 'Range Rover Velar',
   description: 'The most refined and capable SUV. Discover its stunning capabilities and design in detail.',
-  alt: 'velar'
-  }, 
+  alt: 'velar',
+  details: {
+    "Maximum speed": 220,
+    Acceleration: 6.7,
+    height: 1.68,
+    length: 4.797,
+    width: 2.145
+  }
+  },
 
   {
-      model: 'Range Rover Evoque', 
+      model: 'Range Rover Evoque',
       description: 'Introducing the new Range Rover Evoque Hybrid. A small and premium SUV for a stylish look.',
-      alt: 'evoque'
+      alt: 'evoque',
+      details: {
+        "Maximum speed": 201,
+        Acceleration: 10.5,
+        height: 1.649,
+        length: 4.371,
+        width: 1.996
+      }
   },
 {
-      model: 'Range Rover Sport', 
-      description: 'Explore the powerful Range Rover Sport. The ultimate luxury SUV.', 
-      alt: 'sport'
+      model: 'Range Rover Sport',
+      description: 'Explore the powerful Range Rover Sport. The ultimate luxury SUV.',
+      alt: 'sport',
+      details: {
+        "Maximum speed": 209,
+        Acceleration: 7.7,
+        height: 1.803,
+        length: 4.879,
+        width: 2.073
+      }
   },
   {
-    model: 'Discovery', 
-    description: 'The off road SUV that truly stand out. Discover our most versatile SUV on the market', 
-    alt: 'discovery'
+    model: 'Discovery',
+    description: 'The off road SUV that truly stand out. Discover our most versatile SUV on the market',
+    alt: 'discovery',
+    details: {
+      "Maximum speed": 207,
+      Acceleration: 8.7,
+      height: 1.909,
+      length: 4.956,
+      width: 2.073
+    }
   }
 ]
 )
