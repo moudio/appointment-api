@@ -19,6 +19,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:user_id, :car_id, :booking_date)
+    params.require(:book).permit(:user_id, :car_id, :booking_date, :city)
   end
 end
