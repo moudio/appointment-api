@@ -12,7 +12,6 @@ class BooksController < ApplicationController
         status: 500,
         book_errors: ['You already have a booking for that car!']
       }
-
     end
 
   end
