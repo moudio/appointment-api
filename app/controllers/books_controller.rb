@@ -20,10 +20,11 @@ class BooksController < ApplicationController
   def destroy
 
       @book = Book.find(params[:id])
-      
+
       if @book.destroy
         render json: {
-          status: :book_destroyed
+          status: :book_destroyed,
+          book_to_destroy: @book.id
         }
       else
         render json: {
