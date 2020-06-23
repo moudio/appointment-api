@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_112437) do
   create_table "books", force: :cascade do |t|
     t.integer "user_id"
     t.integer "car_id"
-    t.string "booking_date"
+    t.string "date"
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

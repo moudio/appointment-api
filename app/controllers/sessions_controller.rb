@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
         render json: {
           logged_in: true,
           user: @user,
-          cars: @user.cars
+          cars: @user.cars,
+          books: @user.books
         }
 
       else

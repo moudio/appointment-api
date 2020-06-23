@@ -5,7 +5,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
     create_table :books do |t|
       t.integer :user_id
       t.integer :car_id
-      t.string :booking_date
+      t.string :date
       t.string :city
       t.timestamps
   end

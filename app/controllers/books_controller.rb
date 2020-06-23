@@ -17,8 +17,25 @@ class BooksController < ApplicationController
 
   end
 
+  def destroy
+
+      @book = Book.find(params[:id])
+      
+      if @book.destroy
+        render json: {
+          status: :book_destroyed
+        }
+      else
+        render json: {
+          status: 500,
+          book_destroy_errors: @book.errors.full_messages
+        }
+
+      end
+  end
+
   private
   def book_params
-    params.require(:book).permit(:user_id, :car_id, :booking_date, :city)
+    params.require(:book).permit(:user_id, :car_id, :date, :city)
   end
 end
