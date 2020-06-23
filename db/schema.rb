@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_112437) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "car_id"], name: "index_books_on_user_id_and_car_id", unique: true
   end
 
   create_table "cars", force: :cascade do |t|

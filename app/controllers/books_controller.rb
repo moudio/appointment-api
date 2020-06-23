@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     else
       render json: {
         status: 500,
-        book_errors: @book.errors.full_messages
+        book_errors: ['You already have a booking for that car!']
       }
 
     end
