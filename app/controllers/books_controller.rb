@@ -43,16 +43,16 @@ end
   end
 
 def update
-@book = Book.find(params[:id])
-if @book.update(date: params[:date], city: params[:city])
+@book = Book.find(book_params[:book_id])
+if @book.update(date: book_params[:date], city: book_params[:city])
 render json: {
-  status: :updated
+  status: :patched
 }
 end
 end
 
   private
   def book_params
-    params.require(:book).permit(:user_id, :car_id, :date, :city)
+    params.require(:book).permit(:user_id, :car_id, :date, :city, :book_id)
   end
 end
