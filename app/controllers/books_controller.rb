@@ -42,6 +42,15 @@ end
       end
   end
 
+def update
+@book = Book.find(params[:id])
+if @book.update(date: params[:date], city: params[:city])
+render json: {
+  status: :updated
+}
+end
+end
+
   private
   def book_params
     params.require(:book).permit(:user_id, :car_id, :date, :city)
