@@ -16,6 +16,14 @@ class BooksController < ApplicationController
 
   end
 
+def show
+  @book = Book.find(params[:id])
+  render json: {
+    book: @book,
+    car: @book.car
+  }
+end
+
   def destroy
 
       @book = Book.find(params[:id])

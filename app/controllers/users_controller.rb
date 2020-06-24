@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only:[:show, :user_cars, :user_books, :show_cars, :user_books, :show_car]
+    before_action :set_user, only:[:show, :user_books_cars]
 
     def index
         @users = User.all
@@ -41,20 +41,15 @@ class UsersController < ApplicationController
         json_response(@user)
     end
 
-    def user_cars
-        @user_cars = @user.cars
-        json_response(@user_cars)
+
+
+    def user_books_cars
+        render json: {
+          books: @user.books,
+          cars: @user.cars
+        }
     end
 
-    def user_books
-        @user_books = @user.books
-        json_response(@user_books)
-    end
-
-    def show_car
-        @car = @user.cars.find(params[:car_id])
-        json_response(@car)
-    end
 
 
     private

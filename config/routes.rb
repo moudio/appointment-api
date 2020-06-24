@@ -14,7 +14,7 @@ end
   delete '/logout' => 'sessions#destroy'
   get '/404' => 'errors#not_found'
   get '/users/:id/cars' => "users#user_cars"
-  get '/users/:id/books' => "users#user_books"
+  get '/users/:id/books_cars' => "users#user_books_cars"
   get '/users/:id/cars/:car_id' => "users#show_car"
   get 'logged_in', to: 'sessions#is_logged_in?'
 end
