@@ -2,15 +2,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 scope '/api/v1' do
-  resources :cars
+  resources :cars , only: [:index, :show]
   resources :users
   resources :books, only: [:create, :show, :destroy, :update]
 end
 
   root 'cars#index'
   get '/welcome' => 'pages#welcome'
-  get '/signup' => 'users#new'
-  get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/404' => 'errors#not_found'
