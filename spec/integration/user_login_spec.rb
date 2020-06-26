@@ -12,6 +12,7 @@ describe 'Login' do
         expect(JSON(response.body)['logged_in']).to eq(true)
       end
 
+
     end
 
   context 'Fail to login' do
@@ -21,7 +22,26 @@ describe 'Login' do
       end
 
     end
+
   end
+
+
+describe 'Logout' do
+  before {post '/login/', params: {user: {username: "User", password:"password"}}}
+
+context "Logs out successfully " do
+
+before {delete '/logout'}
+
+it "sends back response after logging out" do
+  expect(JSON(response.body)['logged_out']).to eq(true)
+end
+
+
+
+end
+
+end
 
 
 end
