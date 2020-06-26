@@ -1,14 +1,27 @@
 require 'rails_helper'
-require_relative '../helpers/users_helpers_spec.rb'
-feature 'User login' do 
-let(:user) {create(:user)}
-scenario "checks if user can login" do 
- login user
-expect(page).to have_content("Logout")
-click_button "Logout"
-expect(page).to have_content("Login")
-end 
+
+RSpec.describe "Sessions", type: :request do
+let!(:new_user){create(:user, username: "User", password: "password")}
+
+describe 'Login' do
+
+  context "Success login " do
+    before {post '/login/', params: {user: {username: "User", password:"password"}}}
+
+      it "returns the login credentials" do
+        expect(JSON(response.body)['logged_in']).to eq(true)
+      end
+
+    end
+
+  context 'Fail to login' do
+    before {post '/login', params: {user: {username: 'Fake User', password: 'false password'}}}
+      it "return errors" do
+          expect(JSON(response.body)["errors"]).to match(["Verify credentials and try again or signup"])
+      end
+
+    end
+  end
 
 
-
-end 
+end
