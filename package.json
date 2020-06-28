@@ -2,11 +2,7 @@
   "name": "appointment",
   "private": true,
   "dependencies": {
-    "@babel/preset-react": "^7.10.1",
-    "@rails/webpacker": "5.1.1",
-    "engines": {
-      "node": "12.x"
-    }
+    "@rails/webpacker": "5.1.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
