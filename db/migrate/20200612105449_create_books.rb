@@ -8,7 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :date
       t.string :city
       t.timestamps
-  end
-      add_index :books, [:user_id, :car_id], unique: true
+    end
+    add_index :books, %i[user_id car_id], unique: true
 end
 end

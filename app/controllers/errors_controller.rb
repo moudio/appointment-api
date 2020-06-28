@@ -1,6 +1,7 @@
-class ErrorsController < ApplicationController
-def not_found 
-render status: 404
-end 
+# frozen_string_literal: true
 
-end 
+class ErrorsController < ApplicationController
+  def not_found
+    render status: 404
+  end
+end
