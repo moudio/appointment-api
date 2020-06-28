@@ -63,14 +63,14 @@ end
 
     context "deleting a book " do
 
-      before {post '/api/v1/books',  params: { book: {user_id: 1, car_id: 3, city: '', date: '2020-08-12'}} }
+      before {post '/api/v1/books',  params: { book: {user_id: 1, car_id: 3, city: 'Louga', date: '2020-08-12'}} }
 
         it "returns response after book destroyed" do
             delete "/api/v1/books/#{first_book_id}"
             expect(JSON(response.body)['status']).to eq('book_destroyed')
         end
-    end 
-
+    end
+    
   end
 
 end

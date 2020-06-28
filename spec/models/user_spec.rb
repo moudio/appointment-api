@@ -16,8 +16,8 @@ RSpec.describe User, type: :model do
           expect(second_user).not_to be_valid
       end
 
-      it "tests the username has a length of at least 4 words" do
-        user.username = "abc"
+      it "tests the username has a length of at least 3 words" do
+        user.username = "ac"
         expect(user).not_to be_valid
       end
 
