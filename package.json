@@ -10,6 +10,7 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.10.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.21.2",
