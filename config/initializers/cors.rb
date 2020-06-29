@@ -5,5 +5,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins 'http://localhost:3000/'
     resource '*', headers: :any, methods: %i[get post patch put delete options head],
                   credentials: true
+
+                  resource "#{Rails.application.config.assets.prefix}/*"
   end
 end
