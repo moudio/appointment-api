@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CarsController < ApplicationController
-  before_action :authorized, :set_car, only: %i[show update destroy]
+   :set_car, only: %i[show update destroy]
   def index
     @cars = Car.all
     json_response(@cars)
