@@ -43,7 +43,7 @@ Car.create([
 
              },
              {
-               model: 'Discovery',
+               model: 'Range Rover Discovery',
                description: 'The off road SUV that truly stand out. Discover our most versatile SUV on the market',
                alt: 'discovery',
                speed: 207,
