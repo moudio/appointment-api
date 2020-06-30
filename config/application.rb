@@ -16,7 +16,7 @@ module Appointment
     config.assets.initialize_on_precompile = false
     config.assets.initialize_on_precompile = false
     config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => 'https://appointcar.netlify.app',
+        'Access-Control-Allow-Origin' => 'https://appointcar.netlify.app/',
         'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
       }
 
