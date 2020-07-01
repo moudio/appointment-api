@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show user_books_cars]
-
+  before_action :authorize_request, except: :create
   def index
     @users = User.all
     if @users
