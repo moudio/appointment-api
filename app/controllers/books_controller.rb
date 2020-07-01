@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
+  before_action :authorize_request
+
   def create
     @book = Book.create(book_params)
     if @book.save
       render json: {
         status: :book_created
       }
+
     else
       render json: {
         status: 500,
@@ -51,6 +54,8 @@ class BooksController < ApplicationController
   end
 
   private
+
+
 
   def book_params
     params.require(:book).permit(:user_id, :car_id, :date, :city, :book_id)
