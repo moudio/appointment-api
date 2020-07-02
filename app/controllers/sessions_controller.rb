@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: session_params[:username])
     if @user&.authenticate(session_params[:password])
-        token = JsonWebToken.encode(user_id: @user.id)
-        time = Time.now + 24.hours.to_i
-        render json: {
+      token = JsonWebToken.encode(user_id: @user.id)
+      time = Time.now + 24.hours.to_i
+      render json: {
         token: token,
-        exp: time.strftime("%m-%d-%Y %H:%M"),
+        exp: time.strftime('%m-%d-%Y %H:%M'),
         logged_in: true,
         user: @user.username,
         user_id: @user.id,
