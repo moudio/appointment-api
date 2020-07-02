@@ -15,10 +15,14 @@ module Appointment
     config.load_defaults 5.2
     config.assets.initialize_on_precompile = false
     config.assets.initialize_on_precompile = false
+    # config.action_dispatch.default_headers = {
+    #     'Access-Control-Allow-Origin' => '*',
+    #     'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    #   }
 
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins 'https://appointcar.netlify.app/'
+        origins 'https://appointcar.netlify.app'
         resource '*', headers: :any, methods: %i[get post put patch delete options head],
                       credentials: true
       end
