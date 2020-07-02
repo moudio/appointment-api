@@ -46,7 +46,10 @@ RSpec.describe 'Cars API', type: :request do
   end
 
   describe 'POST /cars' do
-    let(:valid_attributes) { { model: 'Range Rover Auto', description: 'The description for the Range Rover Autobiography', alt: 'Autobio' } }
+    let(:valid_attributes) do
+      { model: 'Range Rover Auto', description: 'The description for the Range Rover Autobiography',
+        alt: 'Autobio' }
+    end
 
     context 'when the request is valid' do
       before { post '/api/v1/cars', params: valid_attributes }
