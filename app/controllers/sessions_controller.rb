@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(session_params[:password])
       token = JsonWebToken.encode(user_id: @user.id)
       time = Time.now + 24.hours.to_i
+      session[:user_id]: @user.id
       render json: {
         token: token,
         exp: time.strftime('%m-%d-%Y %H:%M'),

@@ -22,7 +22,7 @@ module Appointment
 
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins 'https://appointcar.netlify.app'
+        origins 'http://localhost:3000'
         resource '*', headers: :any, methods: %i[get post put patch delete options head],
                       credentials: true
       end
