@@ -76,7 +76,7 @@ logout!
 
 
   def find_user
-        user_id = cookies.encrypted[:appointment]
+        user_id = cookies.encrypted[:appointcar]
     @found_user = User.find_by(id: user_id)
   end
 
