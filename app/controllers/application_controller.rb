@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include ::ActionController::Cookies
   include Response
   include ExceptionHandler
 
   helper_method :logged_in?, :current_user, :login!, :authorized, :logout!
 
   def login!
-    session[:user_id] = @user.id
+    cookies.encrypted[:appointcar] = {
+      value: @user.id,
+      expires: 1.day.from_now
+    }
   end
 
   def current_user
@@ -19,7 +23,7 @@ class ApplicationController < ActionController::API
   end
 
   def logout!
-    session.clear
+    cookies.delete :appointcar
   end
 
   def not_found

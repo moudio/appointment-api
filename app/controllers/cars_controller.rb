@@ -2,7 +2,7 @@
 
 class CarsController < ApplicationController
   before_action :set_car, only: %i[show update destroy]
-  before_action :authorize_request, except: :create
+  before_action :authorize_request, only: %i[destroy update]
 
   def index
     @cars = Car.all
