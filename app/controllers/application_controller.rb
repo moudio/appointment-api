@@ -8,7 +8,11 @@ class ApplicationController < ActionController::API
   helper_method :logged_in?, :current_user, :login!, :authorized, :logout!
 
   def login!
-     cookies.encrypted[:user_id] = @user.id
+
+     cookies.encrypted[:user_id] = {
+       value: @user.id,
+       expires: 1.day.from_now
+       }
   end
 
   def current_user
