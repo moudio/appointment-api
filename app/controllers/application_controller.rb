@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-
   include Response
   include ExceptionHandler
 
@@ -9,6 +8,7 @@ class ApplicationController < ActionController::API
 
   def login!
     session[:user_id] = @user.id
+    # session[:user_id] = nil
   end
 
   def current_user
