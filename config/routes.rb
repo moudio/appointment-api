@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/404' => 'errors#not_found'
   get '/users/:username/books_cars' => 'users#user_books_cars'
   get 'logged_in', to: 'sessions#is_logged_in?'
+  get '/cookie_login' => 'sessions#cookie_login'
 end
