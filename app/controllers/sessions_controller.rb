@@ -3,8 +3,8 @@
 class SessionsController < ApplicationController
   include ::ActionController::Cookies
 
-  before_action :authorize_request, except: [:create, :cookie_login]
-  before_action :find_user , only: :cookie_login
+  before_action :authorize_request, except: %i[create cookie_login]
+  before_action :find_user, only: :cookie_login
   def create
     @user = User.find_by(username: session_params[:username])
     if @user&.authenticate(session_params[:password])
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         user: @user.username,
         user_id: @user.id,
         cars: @user.cars,
-        books: @user.books,
+        books: @user.books
       }
     else
       render json: {
@@ -32,15 +32,15 @@ class SessionsController < ApplicationController
     if @found_user.present? && @found_user.is_a?(User)
       token = JsonWebToken.encode(user_id: @found_user.id)
       time = Time.now + 24.hours.to_i
-          render json: {
-            token: token,
-            exp: time.strftime('%m-%d-%Y %H:%M'),
-            logged_in: true,
-            user: @found_user.username,
-            user_id: @found_user.id,
-            cars: @found_user.cars,
-            books: @found_user.books,
-          }
+      render json: {
+        token: token,
+        exp: time.strftime('%m-%d-%Y %H:%M'),
+        logged_in: true,
+        user: @found_user.username,
+        user_id: @found_user.id,
+        cars: @found_user.cars,
+        books: @found_user.books
+      }
 
         end
   end
@@ -60,12 +60,11 @@ end
 end
 
   def destroy
-logout!
+    logout!
     render json: {
       status: 200,
       logged_out: true
     }
-
   end
 
   private
@@ -74,11 +73,8 @@ logout!
     params.require(:user).permit(:username, :password)
   end
 
-
   def find_user
-        user_id = cookies.encrypted[:appointcar]
+    user_id = cookies.encrypted[:appointcar]
     @found_user = User.find_by(id: user_id)
   end
-
-
 end
