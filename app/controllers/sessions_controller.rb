@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  include ::ActionController::Cookies
+
   before_action :authorize_request, except: [:create, :cookie_login]
   before_action :find_user , only: :cookie_login
   def create
@@ -58,7 +60,7 @@ end
 end
 
   def destroy
-    logout!
+logout!
     render json: {
       status: 200,
       logged_out: true
@@ -74,7 +76,7 @@ end
 
 
   def find_user
-    user_id = session[:user_id]
+        user_id = cookies.encrypted[:user_id]
     @found_user = User.find_by(id: user_id)
   end
 
