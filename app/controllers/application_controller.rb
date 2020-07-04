@@ -8,23 +8,22 @@ class ApplicationController < ActionController::API
   helper_method :logged_in?, :current_user, :login!, :authorized, :logout!
 
   def login!
-
-     cookies.encrypted[:user_id] = {
+     cookies.encrypted[:appointcar] = {
        value: @user.id,
        expires: 1.day.from_now
        }
   end
 
-  def current_user
-    @user = User.find(session[:user_id]) if session[:user_id]
-  end
+  # def current_user
+  #   @user = User.find(session[:user_id]) if session[:user_id]
+  # end
 
-  def logged_in?
-    !!current_user
-  end
+  # def logged_in?
+  #   !!current_user
+  # end
 
   def logout!
-    cookies.delete :user_id
+    cookies.delete :appointment
     # session.clear
   end
 
