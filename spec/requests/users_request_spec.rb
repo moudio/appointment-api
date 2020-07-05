@@ -7,10 +7,11 @@ RSpec.describe 'Users API', type: :request do
   let!(:car) { create(:car) }
   let!(:book) { create(:book, car_id: 1, user_id: user.id) }
   let!(:user_id) { user.id }
+  let!(:username) {user.username}
   let!(:id) { car.id }
 
   describe 'Get users' do
-    before { get "/users/#{user_id}/books_cars" }
+    before { get "/users/#{username}/books_cars" }
 
     context 'when car exists' do
       it 'returns status code 200' do
@@ -23,7 +24,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when car does not exist' do
-      let(:user_id) { 0 }
+      let(:username) { 'fakeUserxwz' }
       it 'returns a not found message' do
         expect(response.body).to match(/Couldn't find User/)
       end

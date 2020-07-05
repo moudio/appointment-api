@@ -47,7 +47,6 @@ class BooksController < ApplicationController
     if @book.update(date: book_params[:date], city: book_params[:city])
       render json: {
         status: :patched,
-        # book: @book
       }
     end
   end

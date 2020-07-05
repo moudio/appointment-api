@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show user_books_cars]
-  # before_action :authorize_request, except: :create
   def index
     @users = User.all
     if @users
@@ -16,9 +15,9 @@ class UsersController < ApplicationController
 end
 end
 
-  def new
-    @user = User.new
-  end
+  # def new
+  #   @user = User.new
+  # end
 
   def create
     @user = User.create(user_params)
@@ -47,10 +46,14 @@ end
   end
 
   def user_books_cars
+    if(@user)
     render json: {
       books: @user.books,
       cars: @user.cars
     }
+  else
+    render json: "Couldn't find User"
+  end
   end
 
   private

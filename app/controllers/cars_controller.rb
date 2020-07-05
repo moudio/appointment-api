@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class CarsController < ApplicationController
   before_action :set_car, only: %i[show update destroy]
   # before_action :authorize_request, only: %i[destroy update]

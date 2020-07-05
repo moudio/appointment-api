@@ -1,9 +1,7 @@
 # frozen_string_literal: true
-
 class SessionsController < ApplicationController
   include ::ActionController::Cookies
 
-  # before_action :authorize_request, except: %i[create cookie_login]
   before_action :find_user, only: :cookie_login
   def create
     @user = User.find_by(username: session_params[:username])
