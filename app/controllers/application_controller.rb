@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     cookies.encrypted[:appointcar] = {
       value: @user.id,
       expires: 1.day.from_now,
-      same_site: 'None'
+      same_site: 'Secure'
     }
   end
 
