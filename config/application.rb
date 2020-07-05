@@ -13,7 +13,7 @@ module Appointment
     # Initialize configuration defaults for originally generated Rails version.
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
- 
+
     config.load_defaults 5.2
     config.assets.initialize_on_precompile = false
     config.assets.initialize_on_precompile = false
@@ -24,7 +24,7 @@ module Appointment
 
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
-        origins 'https://appointcar.netlify.app'
+        origins 'https://appointcar.netlify.app', 'http://localhost:3000'
         resource '*', headers: :any, methods: %i[get post put patch delete options head],
                       credentials: true
       end
