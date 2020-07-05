@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :authorize_request
+  # before_action :authorize_request
   before_action :find_booking, only: [:show, :destroy, :update]
 
   def create
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
     if @book.update(date: book_params[:date], city: book_params[:city])
       render json: {
         status: :patched,
-        book: @book 
+        # book: @book
       }
     end
   end
@@ -55,7 +55,7 @@ class BooksController < ApplicationController
   private
 
   def find_booking
-    @book = Book.find(book_params[:book_id])
+    @book = Book.find(params[:id])
   end
 
   def book_params
