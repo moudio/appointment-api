@@ -2,6 +2,7 @@
 
 class BooksController < ApplicationController
   before_action :authorize_request
+  before_action :find_booking, only: [:show, :destroy, :update]
 
   def create
     @book = Book.create(book_params)
@@ -20,7 +21,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
     render json: {
       book: @book,
       car: @book.car
@@ -28,8 +28,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:id])
-
     if @book.destroy
       render json: {
         status: :book_destroyed,
@@ -45,7 +43,6 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(book_params[:book_id])
     if @book.update(date: book_params[:date], city: book_params[:city])
       render json: {
         status: :patched
@@ -54,6 +51,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def find_booking
+    @book = Book.find(book_params[:book_id])
+  end
 
   def book_params
     params.require(:book).permit(:user_id, :car_id, :date, :city, :book_id)
