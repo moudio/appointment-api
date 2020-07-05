@@ -8,7 +8,8 @@ class BooksController < ApplicationController
     @book = Book.create(book_params)
     if @book.save
       render json: {
-        status: :book_created
+        status: :book_created,
+        book: @book
       }
 
     else
@@ -45,7 +46,8 @@ class BooksController < ApplicationController
   def update
     if @book.update(date: book_params[:date], city: book_params[:city])
       render json: {
-        status: :patched
+        status: :patched,
+        book: @book 
       }
     end
   end
