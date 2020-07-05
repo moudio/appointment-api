@@ -10,7 +10,8 @@ class ApplicationController < ActionController::API
   def login!
     cookies.encrypted[:appointcar] = {
       value: @user.id,
-      expires: 1.day.from_now
+      expires: 1.day.from_now,
+      domain: 'https://appointcar.netlify.app'
     }
   end
 
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::API
   end
 
   def logout!
-    cookies.delete :appointcar
+    cookies.delete(:appointcar, domain: 'https://appointcar.netlify.app')
   end
 
   def not_found
