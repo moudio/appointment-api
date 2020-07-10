@@ -23,8 +23,10 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    @car.destroy
-    head :no_content
+    if @car.destroy
+      @cars = Car.all
+      json_response(@cars)
+    end
   end
 
   private
