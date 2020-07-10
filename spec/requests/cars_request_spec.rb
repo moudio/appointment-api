@@ -90,10 +90,10 @@ RSpec.describe 'Cars API', type: :request do
   end
 
   describe 'Deleting a car' do
-    context "deletes the car when record exists" do
-      before {delete "/api/v1/cars/#{car_id}"}
-    it "deletes a car when car exists" do
-    expect(JSON(response.body).length).to eq(9)
+    context 'deletes the car when record exists' do
+      before { delete "/api/v1/cars/#{car_id}" }
+      it 'deletes a car when car exists' do
+        expect(JSON(response.body).length).to eq(9)
       end
     end
   end

@@ -2,7 +2,7 @@
 
 class BooksController < ApplicationController
   # before_action :authorize_request
-  before_action :find_booking, only: [:show, :destroy, :update]
+  before_action :find_booking, only: %i[show destroy update]
 
   def create
     @book = Book.create(book_params)
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   def update
     if @book.update(date: book_params[:date], city: book_params[:city])
       render json: {
-        status: :patched,
+        status: :patched
       }
     end
   end

@@ -6,8 +6,6 @@ RSpec.describe 'Books', type: :request do
   let!(:user) { create(:user) }
   let!(:cars) { create_list(:car, 20) }
   let!(:first_book) { create(:book, user_id: user.id, car_id: 1) }
-  let!(:second_book) { create(:book, user_id: user.id, car_id: 2) }
-  let!(:third_book) { create(:book, user_id: user.id, car_id: 3) }
   let!(:first_book_id) { first_book.id }
 
   describe 'Get bookings' do
@@ -28,7 +26,7 @@ RSpec.describe 'Books', type: :request do
     end
   end
 
-  describe 'CRUD operations for Bookings' do
+  describe 'Creating a new booking' do
     let(:valid_attributes) { { user_id: 1, car_id: 5, city: 'Dakar', date: '2020-07-30' } }
     context 'when book is successfully created' do
       before { post '/api/v1/books', params: { book: valid_attributes } }
@@ -40,7 +38,6 @@ RSpec.describe 'Books', type: :request do
         expect(response).to have_http_status(200)
       end
     end
-
 
     context 'when the request is invalid' do
       before { post '/api/v1/books',  params: { book: { user_id: 1, car_id: 3, city: '', date: '2020-08-12' } } }
@@ -59,11 +56,10 @@ RSpec.describe 'Books', type: :request do
       end
     end
     context 'updating a book' do
-      before {put "/api/v1/books/#{first_book_id}", params:{ book: {date: '2020-09-03', city: 'Dakar' }}}
+      before { put "/api/v1/books/#{first_book_id}", params: { book: { date: '2020-09-03', city: 'Dakar' } } }
       it 'updates a book' do
-      expect(JSON(response.body)['status']).to eq('patched')
+        expect(JSON(response.body)['status']).to eq('patched')
+      end
     end
-    end
-
   end
 end

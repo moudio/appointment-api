@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   include ::ActionController::Cookies
   include Response
@@ -9,7 +10,7 @@ class ApplicationController < ActionController::API
   def login!
     cookies.encrypted[:appointcar] = {
       value: @user.id,
-      expires: 1.day.from_now,
+      expires: 1.day.from_now
     }
   end
 
@@ -24,6 +25,4 @@ class ApplicationController < ActionController::API
   def logout!
     cookies.delete(:appointcar)
   end
-
-
 end

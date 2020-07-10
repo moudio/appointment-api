@@ -15,19 +15,15 @@ class UsersController < ApplicationController
 end
 end
 
-
   def create
     @user = User.create(user_params)
     if @user.save
       login!
-      token = JsonWebToken.encode(user_id: @user.id)
-      time = Time.now + 24.hours.to_i
       render json: {
         status: :created,
         user: @user.username,
         user_id: @user.id,
-        cars: @user.cars,
-        token: token
+        cars: @user.cars
       }
 
     else
@@ -43,13 +39,13 @@ end
   end
 
   def user_books_cars
-    if(@user)
-    render json: {
-      books: @user.books,
-      cars: @user.cars
-    }
-  else
-    render json: "Couldn't find User"
+    if @user
+      render json: {
+        books: @user.books,
+        cars: @user.cars
+      }
+    else
+      render json: "Couldn't find User"
   end
   end
 

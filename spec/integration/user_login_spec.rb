@@ -20,7 +20,6 @@ RSpec.describe 'Sessions', type: :request do
         expect(JSON(response.body)['errors']).to match(['Verify credentials and try again or signup'])
       end
     end
-
   end
 
   describe 'Logout' do

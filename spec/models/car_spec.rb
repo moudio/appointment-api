@@ -15,7 +15,7 @@ RSpec.describe Car, type: :model do
     expect(car.save).to eq(true)
   end
 
-  it 'checks if car is valid when there is a not alt' do
+  it 'checks if car is valid when there is no alt' do
     car.alt = ''
     expect(car).not_to be_valid
   end

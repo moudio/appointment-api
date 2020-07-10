@@ -4,10 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   let!(:user) { create(:user) }
-  let!(:user_two) { create(:user) }
   let!(:car) { create(:car) }
   let!(:book) { create(:book, user_id: 1, car_id: 1, city: 'Paris', date: '2020-20-12') }
-  let!(:second_book) { build(:book, user_id: 1, car_id: 1, city: 'Dakar', date: '2020-21-12') }
 
   context 'Tests the book is valid' do
     it 'tests the user is valid with city and date' do
