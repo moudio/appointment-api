@@ -28,7 +28,7 @@ RSpec.describe 'Books', type: :request do
     end
   end
 
-  describe 'Create Bookings' do
+  describe 'CRUD operations for Bookings' do
     let(:valid_attributes) { { user_id: 1, car_id: 5, city: 'Dakar', date: '2020-07-30' } }
     context 'when book is successfully created' do
       before { post '/api/v1/books', params: { book: valid_attributes } }
@@ -40,6 +40,7 @@ RSpec.describe 'Books', type: :request do
         expect(response).to have_http_status(200)
       end
     end
+
 
     context 'when the request is invalid' do
       before { post '/api/v1/books',  params: { book: { user_id: 1, car_id: 3, city: '', date: '2020-08-12' } } }
@@ -57,5 +58,12 @@ RSpec.describe 'Books', type: :request do
         expect(JSON(response.body)['status']).to eq('book_destroyed')
       end
     end
+    context 'updating a book' do
+      before {put "/api/v1/books/#{first_book_id}", params:{ book: {date: '2020-09-03', city: 'Dakar' }}}
+      it 'updates a book' do
+      expect(JSON(response.body)['status']).to eq('patched')
+    end
+    end
+
   end
 end

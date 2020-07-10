@@ -7,11 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: session_params[:username])
     if @user&.authenticate(session_params[:password])
       login!
-      token = JsonWebToken.encode(user_id: @user.id)
-      time = Time.now + 24.hours.to_i
       render json: {
-        token: token,
-        exp: time.strftime('%m-%d-%Y %H:%M'),
         logged_in: true,
         user: @user.username,
         user_id: @user.id,
@@ -24,23 +20,6 @@ class SessionsController < ApplicationController
         errors: ['Verify credentials and try again or signup']
       }
     end
-  end
-
-  def cookie_login
-    if @found_user.present? && @found_user.is_a?(User)
-      token = JsonWebToken.encode(user_id: @found_user.id)
-      time = Time.now + 24.hours.to_i
-      render json: {
-        token: token,
-        exp: time.strftime('%m-%d-%Y %H:%M'),
-        logged_in: true,
-        user: @found_user.username,
-        user_id: @found_user.id,
-        cars: @found_user.cars,
-        books: @found_user.books
-      }
-
-        end
   end
 
   def is_logged_in?
