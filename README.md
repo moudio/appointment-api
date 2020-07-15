@@ -8,7 +8,7 @@
 
 - Ruby
 - Ruby on Rails
-- JWT (Json Web Token)
+- JWT (JSON Web Token)
 
 ## Usage
 
@@ -33,13 +33,13 @@ This is a fully-built Rails API  that serves a front-end React application (can 
 
 
 The user can:
-- Create or Login to its account
+- Create or log in to its account
 - Fetch cars from the front end
 - Book for cars
 - Update bookings
 - Cancel/Delete booking
 
-The user can only do these queries from the front-end application. This rails API's acccess is protected with Jwt (Json Web Token). Which means that the API is not available outside of the front-end application.
+The user can only do these queries from the front-end application. This rails API's access is protected with Jwt (JSON Web Token). This means that the API is not available outside of the front-end application.
 
 ## Developed by
 
